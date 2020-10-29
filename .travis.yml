@@ -1,11 +1,14 @@
-language: generic
-services: docker
+language: ruby
+
+services:
+  - docker
 
 os: linux
 
 dist: xenial
 
 before_install:
+  - gem install bundler
   - docker build -t ajmoro/react-test -f ./client/Dockerfile.dev ./client
 
 script: docker run -e CI=true ajmoro/react-test npm test
