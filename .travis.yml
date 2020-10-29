@@ -1,9 +1,10 @@
 language: generic
-services:
-  - docker
-branches:
-  only:
-    - main
+services: docker
+
+os: linux
+
+dist: xenial
+
 before_install:
   - docker build -t ajmoro/react-test -f ./client/Dockerfile.dev ./client
 
